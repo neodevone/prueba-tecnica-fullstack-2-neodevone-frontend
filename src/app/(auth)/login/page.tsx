@@ -290,7 +290,7 @@ export default function LoginPage() {
 
           {/* TEST ACCOUNTS - Solo en login */}
           {isLogin && (
-            <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+            <div className="mt-2 p-4 bg-gray-50 rounded-lg">
               <h4 className="font-medium text-gray-900 mb-3 text-center text-sm">Cuentas de Prueba</h4>
               <div className="space-y-2 text-xs">
                 <div className="bg-white p-3 rounded border">

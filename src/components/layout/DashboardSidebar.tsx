@@ -18,7 +18,7 @@ const navigation = [
   { name: 'Dashboard', href: '/admin/dashboard', icon: Home },
   { name: 'Cursos', href: '/admin/courses', icon: BookOpen },
   { name: 'Estudiantes', href: '/admin/students', icon: Users },
-  { name: 'GraphQL', href: '/admin/graphql', icon: Network },
+  //{ name: 'GraphQL', href: '/admin/graphql', icon: Network },
 ];
 
 export default function DashboardSidebar() {
