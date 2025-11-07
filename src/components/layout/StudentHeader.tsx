@@ -11,7 +11,8 @@ export default function StudentHeader() {
 
   const handleLogout = () => {
     if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
-      logout(router); // 🔥 Pasar el router al logout
+      logout();
+      router.push('/login');
     }
   };
 
