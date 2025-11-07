@@ -34,7 +34,7 @@ export default function CoursesPage() {
       inactive: 'bg-gray-100 text-gray-800 border-gray-200',
       completed: 'bg-blue-100 text-blue-800 border-blue-200',
     };
-    
+
     const statusLabels = {
       active: 'Activo',
       inactive: 'Inactivo',
@@ -80,13 +80,13 @@ export default function CoursesPage() {
       {/* Search Bar */}
       <div className="mb-6">
         <div className="relative max-w-md">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
           <input
             type="text"
             placeholder="Buscar cursos..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input-field pl-10"
+            className="w-full border border-gray-300 rounded-md py-2 pl-10 pr-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
       </div>
@@ -111,9 +111,9 @@ export default function CoursesPage() {
               </div>
               {getStatusBadge(course.status)}
             </div>
-            
+
             <p className="text-gray-600 mb-4 line-clamp-3 text-sm">{course.description}</p>
-            
+
             <div className="text-sm text-gray-500 space-y-1 mb-4">
               <div className="flex justify-between">
                 <span>Inicia:</span>
@@ -126,7 +126,7 @@ export default function CoursesPage() {
             </div>
 
             <div className="flex space-x-2 pt-4 border-t border-gray-100">
-              <Link 
+              <Link
                 href={`/admin/courses/${course._id}`}
                 className="btn-secondary flex-1 text-center flex items-center justify-center"
               >

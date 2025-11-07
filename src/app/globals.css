@@ -38,3 +38,4 @@ body {
 .card {
   @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
 }
+

@@ -62,13 +62,13 @@ export default function StudentsPage() {
       {/* Search Bar */}
       <div className="mb-6">
         <div className="relative max-w-md">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
           <input
             type="text"
             placeholder="Buscar estudiantes..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input-field pl-10"
+            className="w-full border border-gray-300 rounded-md py-2 pl-10 pr-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
       </div>
@@ -127,11 +127,10 @@ export default function StudentsPage() {
                     <div className="text-sm text-gray-900">{student.email}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      student.role === 'admin' 
-                        ? 'bg-purple-100 text-purple-800 border border-purple-200' 
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${student.role === 'admin'
+                        ? 'bg-purple-100 text-purple-800 border border-purple-200'
                         : 'bg-green-100 text-green-800 border border-green-200'
-                    }`}>
+                      }`}>
                       {student.role === 'admin' ? 'Administrador' : 'Estudiante'}
                     </span>
                   </td>
