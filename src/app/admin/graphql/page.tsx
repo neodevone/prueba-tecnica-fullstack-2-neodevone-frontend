@@ -35,6 +35,15 @@ export default function GraphQLPage() {
   
   const debouncedSearch = useDebounce(search, 500);
 
+  // Obtener la URL base desde la variable de entorno
+  const getGraphQLUrl = () => {
+    // En desarrollo: usa localhost:3001, en producción usa la variable de entorno
+    if (typeof window !== 'undefined') {
+      return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    }
+    return 'http://localhost:3001';
+  };
+
   const fetchPrograms = useCallback(async (filter = '', status = 'all') => {
     try {
       setLoading(true);
@@ -59,7 +68,9 @@ export default function GraphQLPage() {
         }
       `;
 
-      const response = await fetch('http://localhost:3001/graphql', {
+      const graphqlUrl = `${getGraphQLUrl()}/graphql`;
+
+      const response = await fetch(graphqlUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,6 +80,11 @@ export default function GraphQLPage() {
           variables: { filter: queryFilter }
         }),
       });
+
+      // Verificar si la respuesta es exitosa
+      if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`);
+      }
 
       const result = await response.json();
       
@@ -143,6 +159,10 @@ export default function GraphQLPage() {
         <p className="text-gray-600">
           Consulta datos en tiempo real usando GraphQL
         </p>
+        {/* Debug info - puedes remover esto en producción */}
+        <div className="mt-2 text-xs text-gray-500 bg-gray-100 p-2 rounded">
+          Conectado a: {getGraphQLUrl()}/graphql
+        </div>
       </div>
 
       {/* Search and Filters */}
